@@ -1,0 +1,153 @@
+.dashbo{
+  background-color: transparent;
+  display: flex;
+  
+}
+
+
+.divs-principais{
+   border-left: 2px solid #f1f0f0;
+    width: 20%;
+    height: 100px;
+    padding: 40px 10px;
+    display: flex;
+    justify-content: center;
+    height: auto;
+   flex-direction: column;
+   background: #ffffff;
+   box-shadow:  7px 7px 16px #dbdbdb,
+              -7px -7px 16px #ffffff;
+
+    }
+
+    .divv-box{
+    display: flex;
+    text-align: center;
+    background: #ffffff;
+    box-shadow:  7px 7px 16px #dbdbdb,
+               -7px -7px 16px #ffffff;
+        justify-content: center;
+    }
+    
+    .divv-box .div-icon{
+      width: 40%;
+    }
+
+    .divv-box .div-textos{
+    width: 60%;
+    }
+    
+    .divv-box .div-icon{
+    color: #e9fffc;
+      display: flex;
+      align-items: center;
+    }
+    
+    .divv-box .div-icon i{
+      font-size: 30px;
+      color: #167ece;
+    }
+    
+    .divv-box .div-textos{
+    line-height: 20px;
+    }
+    
+    .divv-box .div-textos strong{
+    font-size: 25px;
+    }
+    
+    .divv-box .div-textos p{
+    color: #777777;
+    }
+    
+    .divv-box .div-textos a{
+    font-size: 14px;
+    text-decoration: none;
+    color: #F559B3;
+    }
+
+    .divv-box .div-textos a:hover{
+      transform: scaleX(1.06);
+      color: #9a1e67;
+    }
+
+ 
+    
+
+    /* grafico*/
+
+    .div-icon,
+    .div-textos{
+      overflow-x: hidden;
+    }
+    .container .row{
+   background-color: transparent;
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+    }
+
+  .canva1,
+  .canva2{
+
+     
+      height: 250px;
+      background: #ffffff;
+box-shadow:  2px 2px 5px #e3e3e3,
+             -2px -2px 5px #ffffff;
+             box-sizing: border-box;
+    }
+
+    .canva1{
+ width: 58%;
+ background-color: transparent;
+    }
+
+     .canva2{
+       width: 38%;
+       background-color: transparent;
+    }
+    .canva3 canvas{
+      width: 100%;
+    }
+
+   
+    .canva3 {
+      height: 300px;
+      width: 99%;
+      margin-top: 20px;
+      background: #ffffff;
+      box-shadow:  5px 5px 10px #e3e3e3,
+      -5px -5px 10px #ffffff;
+    }
+    
+    .canva2 .divv-box{
+      width: 100%;
+      background-color: transparent;
+    padding: 6px 5px;
+      margin-top: 10px;
+    }
+
+    .canva2 #pri{
+      margin-top: 0px;
+    }
+
+    @media screen and (max-width:700px) {
+      #roww{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .canva1{
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    .canva2{
+      width: 100%;
+      margin-top: 20px;
+    }
+    }
+
+
+ 
