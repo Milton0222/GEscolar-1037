@@ -1,7 +1,7 @@
 <x-app-layout>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Pauta Académica</h5>
-        <button style="color:#000" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+        <button style="color:#000" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
     <div   class="modal-body">
 
@@ -11,7 +11,7 @@
             <div class="texto-header">
                 <h1>REPÚBLICA DE ANGOLA</h1>
                 <h1>MINISTÉRIO DA EDUCAÇÃO</h1>
-                <h1>COMPLEXO ESCOLAR NOSSA SENHORA DE FÁTIMA-SELES </h1>
+                <h1>ESCOLA BG 1037 CDTE AUGUSTO CHIPENDAS </h1>
             </div>
             <div class="outro-header">
                 <div class="pri">
@@ -46,7 +46,7 @@
             <tr>
                
                 <td>{{$lista->disciplina}}</td>
-                <td>{{$lista->nota}}</td>
+                <td>{{$lista->media}}</td>
                 <td>{{$lista->classificacao}}</td>
             
             </tr>

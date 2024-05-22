@@ -39,7 +39,7 @@
             <th scope="col">Estudantte</th>
             <th scope="col">Identidade</th>
             <th scope="col">Genero</th> 
-            <th scope="col">Idade</th> 
+            <th scope="col">Disciplina</th> 
             <th style="text-align: center;" colspan="3" scope="col">Métodos</th style="text-align: end;">
            
           </tr>
@@ -51,7 +51,7 @@
             <td>{{$lista->nome}}</td>
             <td>{{$lista->bi}}</td>
             <td>{{$lista->sexo}}</td>
-            <td>{{$lista->idade}}</td>
+            <td>{{$lista->disciplina}}</td>
             @if(Auth::user()->adimin || Auth::user()->secretaria)
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -86,12 +86,12 @@
 </div>
                    <div class="tooltip-container">
                   
-                    <a href="" class="text btn-histor" data-bs-toggle="modal" data-bs-target="#ver{{$lista->code}}"><i id="his" class='bx bxs-calendar-event'></i></a> 
+                    <a href="" class="text btn-histor" data-bs-toggle="modal" data-bs-target="#ver{{$lista->code}}{{$lista->discod}}"><i id="his" class='bx bxs-calendar-event'></i></a> 
                     <span class="tooltip">Pauta </span>
 
                     </a>
 <!-- Modal Ver Pauta -->
-<div class="modal fade" id="ver{{$lista->code}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ver{{$lista->code}}{{$lista->discod}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-header">
@@ -104,7 +104,7 @@
             <div class="texto-header">
                 <h1>REPÚBLICA DE ANGOLA</h1>
                 <h1>MINISTÉRIO DA EDUCAÇÃO</h1>
-                <h1>COMPLEXO ESCOLAR NOSSA SENHORA DE FÁTIMA-SELES </h1>
+                <h1>ESCOLA BG 1037 CDTE AUGUSTO CHIPENDAS </h1>
             </div>
           
             <div class="outro-header">
@@ -116,7 +116,7 @@
                 </div>-->
               <div class="segund">
               <p>Ano Lectivo: <span>{{$lista->anoLectivo}}</span></p>
-              <p>Inscrição:<span>{{$lista->id}}</span></p>
+              <p>Inscrição:<span>{{$lista->code}}</span></p>
               <p>Esttudante<span>{{$lista->nome}}</span></p>
               </div>
             
@@ -128,10 +128,13 @@
                     <table class="table">
                     <thead class="thead-tr-tdd">
                         <tr>
-                            <th scope="col">Identidade: <span>{{$lista->bi}}</span></th>
-                            <th scope="col">Nome: <span>{{$lista->nome}}</span></th>
+                           
+                       
                             <th scope="col">Disciplina: <span>{{$lista->disciplina}}</span></th>
-                            <th scope="col">Média: <span>{{$lista->nota}}</span></th>
+                            <th scope="col">P1: <span>{{$lista->avaliacao1}}</span></th>
+                            <th scope="col">P2: <span>{{$lista->avaliacao2}}</span></th>
+                            <th scope="col">P2: <span>{{$lista->avaliacao3}}</span></th>
+                            <th scope="col">Média: <span>{{$lista->media}}</span></th>
                             <th scope="col">Resultado: <span>{{$lista->classificacao}}</span></th>
                          
                         </tr>
@@ -146,7 +149,7 @@
             <div class="data-prof">
                 <span>Data: 12/12/2023</span>
               
-                 <p>{{$lista->professor}}</p>
+                 <p>--------------</p>
             </div>
 
             <div class="imprimir">

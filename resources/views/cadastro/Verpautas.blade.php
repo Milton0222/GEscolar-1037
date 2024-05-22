@@ -181,7 +181,7 @@
                     
                     
       
-        <a href="" class="turma-alun"><i class="fa-solid fa-user-tie"></i> Ver pauta</a>
+        <a href="{{route('pauta.alunos',$listap->id)}}" class="turma-alun"><i class="fa-solid fa-user-tie"></i> Ver pauta</a>
                   </div>
             </td>
       

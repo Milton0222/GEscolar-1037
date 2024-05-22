@@ -126,6 +126,7 @@ Route::middleware([
     Route::get('/pauta/geral',[pautaController::class, 'consultarPauta'])->name('pauta.geral');
     Route::get('/Ver/pauta',[pautaController::class,'VerPauta'])->name('ver.pauta');
     Route::get('/pauta/apagar/{id}',[pautaController::class,'destroy'])->name('pauta.destroy');
+    Route::get('/Pauta/alunos/{id}',[pautaController::class, 'verPautaAluuno'])->name('pauta.alunos');
 
 
 });

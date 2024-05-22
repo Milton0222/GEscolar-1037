@@ -37,27 +37,58 @@ class pautaController extends Controller
     }
     public function index()
     {
-       
+       $sql="SELECT estudantes.id as 'code',pautas.id,estudantes.bi,estudantes.nome,estudantes.sexo,estudantes.idade,
+       disciplinas.nome as 'disciplina',pautas.anoLectivo,disciplinas.id as 'discod',
+       pauta_estudantes.avaliacao1,pauta_estudantes.avaliacao2,
+       pauta_estudantes.avaliacao3,pauta_estudantes.media,pauta_estudantes.classificacao
+    FROM estudantes JOIN pauta_estudantes on(estudantes.id=pauta_estudantes.aluno)
+                                             JOIN pautas on (pautas.id=pauta_estudantes.pauta)
+                                             JOIN disciplinas on(pauta_estudantes.disciplina=disciplinas.id)
+                                             JOIN turmas on(turmas.id=pautas.turma)
+                                             JOIN classes on(classes.id=turmas.classe);";
 
                    
 
-        $turma=estudante::get();
+        $turma=DB::select($sql);
+
+
             $classe=classe::get();
         return view('cadastro.pauta',compact('turma','classe'));
+    }
+
+    public function verPautaAluuno(string $id){
+
+
+        $sql="SELECT estudantes.id as 'code',pautas.id,estudantes.bi,estudantes.nome,estudantes.sexo,estudantes.idade,
+        disciplinas.nome as 'disciplina',pautas.anoLectivo,disciplinas.id as 'discod',
+        pauta_estudantes.avaliacao1,pauta_estudantes.avaliacao2,
+        pauta_estudantes.avaliacao3,pauta_estudantes.media,pauta_estudantes.classificacao
+     FROM estudantes JOIN pauta_estudantes on(estudantes.id=pauta_estudantes.aluno)
+                                              JOIN pautas on (pautas.id=pauta_estudantes.pauta)
+                                              JOIN disciplinas on(pauta_estudantes.disciplina=disciplinas.id)
+                                              JOIN turmas on(turmas.id=pautas.turma)
+                                              JOIN classes on(classes.id=turmas.classe)
+                            WHERE pautas.id=$id;";
+
+                $turma=DB::select($sql);
+
+
+                $classe=classe::get();
+return view('cadastro.pauta',compact('turma','classe'));
+
     }
     public function consultarPauta(Request $request){
 
        $sql=" SELECT 
 		classes.nome as 'classe', turmas.nome as 'turma',turmas.periodo,estudantes.nome,
-    	 pautas.nota,disciplinas.nome as 'disciplina', pautas.classificacao
-        FROM estudantes JOIN pautas on(pautas.estudante=estudantes.id)
-        				JOIN disciplinas on(pautas.disciplina=disciplinas.id)
+    	 pauta_estudantes.media,disciplinas.nome as 'disciplina', pauta_estudantes.classificacao
+        FROM estudantes JOIN pauta_estudantes on(pauta_estudantes.aluno=estudantes.id)
+        				JOIN disciplinas on(pauta_estudantes.disciplina=disciplinas.id)
                         JOIN matriculas on(estudantes.id=matriculas.estudante)
                         JOIN turmas on(turmas.id=matriculas.turma)
                         JOIN classes on(classes.id=turmas.classe)
-             
-                        JOIN professors on(pautas.professor=professors.id)
-                 WHERE (pautas.estudante=$request->id) AND (pautas.anoLectivo='$request->anoLectivo') and classes.id=$request->classe;";
+                        JOIN pautas on(pautas.id=pauta_estudantes.pauta)
+                 WHERE (pauta_estudantes.aluno=$request->id) AND (pautas.anoLectivo='$request->anoLectivo') and classes.id=$request->classe;";
 
                  $pauta=DB::select($sql);
                  $classe='';
