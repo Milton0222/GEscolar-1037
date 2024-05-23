@@ -39,16 +39,16 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="ul-sub-menu">
           @if(Auth::user()->adimin || Auth::user()->secretaria)
-            <li><a class="dropdown-item" href="{{route('v-aluno')}}">Aluno</a></li>
+          
             <li><a class="dropdown-item" href="{{route('classe.index')}}">Classe</a></li>
             <li><a class="dropdown-item" href="{{route('turma.index')}}">Turma</a></li>
+            <li><a class="dropdown-item" href="{{route('ver.pauta')}}">Pauta</a></li>
+            <li><a class="dropdown-item" href="{{route('v-aluno')}}">Estudante</a></li>
             <li><a class="dropdown-item" href="{{route('v-Prof')}}">Professor</a></li>
             <li><a class="dropdown-item" href="{{route('disciplina.index')}}">Disciplina</a></li>
-            <li><a class="dropdown-item" href="">Declaração</a></li>
+          
             @endif
-            @if(Auth::user()->professor)
-            <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#pauta">Elaborar pauta</a></li>
-            @endif
+            
             
           </ul>
         </li>
@@ -56,12 +56,12 @@
     
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Operações
+                Consultas
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="ul-sub-menu">
-           <li><a class="dropdown-item" href="{{route('pauta.index')}}">Consultar</a></li>
+           <li><a class="dropdown-item" href="{{route('pauta.index')}}">Pauta</a></li>
            @if(Auth::user()->adimin || Auth::user()->secretaria)
-            <li><a class="dropdown-item" href="{{route('matricula.index')}}">Matriculados</a></li>
+            <li><a class="dropdown-item" href="{{route('matricula.index')}}">Estudante</a></li>
            @endif
           
           
@@ -70,17 +70,28 @@
         @if(Auth::user()->adimin)
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Definições
+                RH
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="ul-sub-menu">
            <li><a class="dropdown-item" href="{{route('v-definicoes')}}">Permição</a></li>
-            <li><a class="dropdown-item" href="#">Fundo</a></li>
-            <li><a class="dropdown-item" href="#">Tema</a></li>
+            <li><a class="dropdown-item" href="{{route('funcionario.index')}}">Funcionarios</a></li>
+            <li><a class="dropdown-item" href="{{route('ponto.ver')}}">Livro de ponto</a></li>
           
           </ul>
         </li>
 
         @endif
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Avaliação
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="ul-sub-menu">
+           <li><a class="dropdown-item" href="#">Docente</a></li>
+            <li><a class="dropdown-item" href="#">Estudante</a></li>
+            <li><a class="dropdown-item" href="#">Funcionario</a></li>
+          
+          </ul>
+        </li>
     
       </ul>
     </div>

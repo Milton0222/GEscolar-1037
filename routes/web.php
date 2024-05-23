@@ -64,6 +64,12 @@ Route::middleware([
     
     //user
         Route::get('/user/{id}',[Controller::class, 'userPermission'])->name('user.permission');
+        Route::get('/ver/funcionarios', [Controller::class, 'index'])->name('funcionario.index');
+        Route::post('/salvar/funcionario',[Controller::class, 'store'])->name('funcionario.store');
+        Route::delete('/apagar/funcionario/{id}',[Controller::class, 'destroy'])->name('funcionario.delete');
+        Route::put('/actualizar/funcioonario/{id}',[Controller::class, 'update'])->name('funcionario.update');
+        Route::get('/pesquisar/funcionario',[Controller::class, 'pesquisar'])->name('funcionario.pesquisar');
+        Route::get('/livro/ponto',[Controller::class,'presencaIndex'])->name('ponto.ver');
     
     //alunos
     
@@ -85,6 +91,7 @@ Route::middleware([
     Route::get('/comparticipar',[pagamentosController::class,'index'])->name('comparticipar.index')->middleware('adimin');
     Route::get('/buscar/utente',[pagamentosController::class,'show'])->name('comparticipar.buscar')->middleware('adimin');
     Route::POST('/salvar/pagamento',[pagamentosController::class,'store'])->name('comparticipar.pagar')->middleware('adimin');
+
     
     //professores
     

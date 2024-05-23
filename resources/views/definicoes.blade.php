@@ -16,12 +16,12 @@
           <form action="{{route('user.permission',$lista->id)}}" method="PUT" class="form">
              @csrf
              <div>
-                <span>Admin</span>
+                <span>Director</span>
                 <input type="checkbox" name="adimin">
               </div>
 
               <div>
-                <span>Secretaria</span>
+                <span>Administrativo</span>
                 <input type="checkbox" name="secretaria">
               </div>
 

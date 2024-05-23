@@ -173,6 +173,9 @@
                                                     <li class="icon-nome">
                                                             <a href="{{route('classe.index')}}"><i class="fa-solid fa-school"></i> Classe</a>
                                                     </li>
+                                                    <li class="icon-nome">
+                                                         <a href="{{route('ver.pauta')}}"><i class="fa-solid fa-layer-group"></i> Pauta</a>
+                                                  </li>
 
 
                                                 
