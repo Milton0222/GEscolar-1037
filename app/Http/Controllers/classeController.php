@@ -16,7 +16,7 @@ class classeController extends Controller
     public function index()
     {
         //
-        $classe=classe::paginate(10);
+        $classe=classe::paginate(4);
         $disciplina=disciplina::get();
 
         return view('cadastro.classe', compact('classe','disciplina'));
@@ -72,7 +72,7 @@ class classeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
         //
     }
@@ -80,7 +80,7 @@ class classeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
         if($classe=classe::findorfail($id)){

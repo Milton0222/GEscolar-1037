@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\presencaProfessor;
 use App\Models\professor;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -121,7 +122,7 @@ class Controller extends BaseController
 
     return view('cadastro.funcionarios',compact('funcionarios'));
   }
-
+//metodo carreegar livro de ponto
   public function presencaIndex(Request $request){
         $sql="SELECT professors.id,professors.nome,professors.bi,professors.sexo,professors.datanascimento
         ,professors.grauacademico, professors.contacto,
@@ -137,4 +138,50 @@ class Controller extends BaseController
        
      return view('cadastro.livrodeponto',compact('funcionario','professor','funcionarios'));
   }
+//metodo regisar livro de ponto presenca professor
+
+        public  function storePonto(Request $request){
+
+                if($profe=professor::findorfail($request->professor)){
+                    presencaProfessor::create([
+                      'data_entrada'=>$request->data_entrada,
+                      'hora_entrada'=>$request->hora_entrada,
+                      'obs'=>"P",
+                      'professor'=>$request->professor
+                    ]);
+
+                    alert()->success($profe['nome'],'Seja bem vindo e bom Trabalho');
+                }
+     
+                return redirect()->route('ponto.ver');
+        }
+
+      //metodo apagar presenca professor
+      
+      public function destroyPonto($id){
+              if($ponto=presencaProfessor::findorfail($id)){
+
+                    $ponto->delete();
+
+                    alert()->success($ponto['id'],'dados apagados');
+              }
+              return redirect()->route('ponto.ver');
+      }
+
+      //metodo actualizar presenca
+
+      public function pontoUpdate(Request $request,$id){
+
+          If($ponto=presencaProfessor::findorfail($id)){
+
+                  $ponto->update([
+                    'data_entrada'=>$request->data_entrada,
+                    'hora_entrada'=>$request->hora_entrada,
+                    'professor'=>$request->professor
+                  ]);
+                  alert()->success($ponto['id'],'dados actualizado');
+          }
+          return redirect()->route('ponto.ver');
+      }
+
 }

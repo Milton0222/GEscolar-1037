@@ -175,7 +175,7 @@
         </tbody>
       </table>
       </div>
-
+{{$classe->links()}}
 
       <div  id="lista-fornece" >
 

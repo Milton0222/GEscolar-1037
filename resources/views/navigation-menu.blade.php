@@ -86,9 +86,8 @@
                 Avaliação
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="ul-sub-menu">
-           <li><a class="dropdown-item" href="#">Docente</a></li>
-            <li><a class="dropdown-item" href="#">Estudante</a></li>
-            <li><a class="dropdown-item" href="#">Funcionario</a></li>
+           <li><a class="dropdown-item" href="{{route('avaliar.avaliarIndex')}}">Docente</a></li>
+      
           
           </ul>
         </li>

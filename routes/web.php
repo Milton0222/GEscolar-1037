@@ -70,6 +70,9 @@ Route::middleware([
         Route::put('/actualizar/funcioonario/{id}',[Controller::class, 'update'])->name('funcionario.update');
         Route::get('/pesquisar/funcionario',[Controller::class, 'pesquisar'])->name('funcionario.pesquisar');
         Route::get('/livro/ponto',[Controller::class,'presencaIndex'])->name('ponto.ver');
+        Route::post('/ponto/salvar',[Controller::class,'storePonto'])->name('ponto.storePonto');
+        Route::delete('/ponto/apagar/{id}',[Controller::class ,'destroyPonto'])->name('ponto.destroyPonto');
+        Route::put('/ponto/actualiza/{id}',[Controller::class,'pontoUpdate'])->name('ponto.pontoUpdate');
     
     //alunos
     
@@ -100,6 +103,13 @@ Route::middleware([
     Route::get('/professor/buscar', [professorController::class,'show'])->name('professor.pesquisar')->middleware('adimin');
     Route::get('/professor/{id}', [professorController::class,'destroy'])->name('professor.destroy')->middleware('adimin');
     Route::get('/professor/disciplina/{id}',[professorController::class ,'ProfessorDisciplina'])->name('professor.ver')->middleware('adimin');
+
+    //Avaliacao professor
+    Route::get('/avaliar/docente',[professorController::class,'avaliarIndex'])->name('avaliar.avaliarIndex');
+    Route::post('/avaliar/docente/salvar',[professorController::class,'avaliarStore'])->name('avaliar.storep');
+    Route::put('/avaliacao/actualizar/{id}',[professorController::class,'avaliarUpdate'])->name('avaliar.update');
+    Route::delete('/avaliacao/apagar/{id}',[professorController::class,'avaliarDestroy'])->name('avaliar.destroy');
+    Route::get('/avaliacao/pesquisar',[professorController::class,'avaliarPesquisar'])->name('avaliar.pesquisar');
     
     //classe
     

@@ -20,9 +20,8 @@ return new class extends Migration
             $table->enum('resultado',['Bom','Medíocre','Mau','Suficiente','Excelente']);
             $table->unsignedBigInteger('avaliador');
             $table->unsignedBigInteger('professor');
-
             $table->foreign('avaliador')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('professor')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('professor')->references('id')->on('professors')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

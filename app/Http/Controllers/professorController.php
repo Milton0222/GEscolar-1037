@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\avaliacao_professor;
 use App\Models\professor;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,10 +20,116 @@ class professorController extends Controller
         return view('cadastro.professor',compact('professores'));
     }
 
+    //metodo visualizar avaliacao docente
 
+    public function avaliarIndex(){
+
+        $sql="SELECT professors.id,professors.nome,
+		users.name,users.id as 'userID',
+        avaliacao_professors.id as 'avaliacaoID',
+        avaliacao_professors.avaliacao1,avaliacao_professors.avaliacao2
+        ,avaliacao_professors.avaliacao3,avaliacao_professors.avaliacao4,
+        avaliacao_professors.resultado,date(avaliacao_professors.created_at) as 'data'
+     FROM professors JOIN avaliacao_professors on(professors.id=avaliacao_professors.professor)
+     				 JOIN users on(users.id=avaliacao_professors.avaliador)	;";
+
+          $avaliador=User::where('secretaria',1)->get();
+          $professor=professor::get();
+
+
+          $avaliacao=DB::select($sql);
+
+        return view('cadastro.avaliacaodocente',compact('avaliador','professor','avaliacao'));
+    }
+
+    //metodo salvar avaliacao
+
+    public function avaliarStore(Request $request){
+        $professor=professor::find($request->professor);
+
+              avaliacao_professor::create([
+                'professor'=>$request->professor,
+                'avaliador'=>$request->avaliador,
+                'avaliacao1'=>$request->avaliacao1,
+                'avaliacao2'=>$request->avaliacao2,
+                'avaliacao3'=>$request->avaliacao3,
+                'avaliacao4'=>$request->avaliacao4,
+                'resultado'=>'Bom'
+              ]);
+           
+              alert()->success('Avaliação registada do professor/a.',$professor['nome']);
+
+        return redirect()->route('avaliar.avaliarIndex');
+    }
+    //metodo actualizar avaliacao
+
+    public function avaliarUpdate(Request $request,$id){
+
+          if($avaliar=avaliacao_professor::find($id)){
+              $professor=professor::find($request->professor);
+
+                        $avaliar->update([
+                                'professor'=>$request->professor,
+                                'avaliador'=>$request->avaliador,
+                                'avaliacao1'=>$request->avaliacao1,
+                                'avaliacao2'=>$request->avaliacao2,
+                                'avaliacao3'=>$request->avaliacao3,
+                                'avaliacao4'=>$request->avaliacao4,
+                                'resultado'=>'Suficiente'
+                        ]);
+                        alert()->success('Dados da Avaliação  do professor/a actualizado.',$professor['nome']);
+
+          }
+
+        return redirect()->route('avaliar.avaliarIndex');
+    }
+
+    //metodo apagar avaliacao
+
+    public function avaliarDestroy($id){
+        if($avaliar=avaliacao_professor::find($id)){
+            $avaliar->delete();
+            alert()->success('Dados apagados da Avaliação nº',$avaliar['id']);
+        }
+        return redirect()->route('avaliar.avaliarIndex');
+    }
     public function pauta_index()
     {
         return view('professor.pauta');
+    }
+
+    //metodo buscar avaliacao de um docente.
+
+    public function avaliarPesquisar(Request $request){
+
+           
+        $sql="SELECT professors.id,professors.nome,
+		users.name,users.id as 'userID',
+        avaliacao_professors.id as 'avaliacaoID',
+        avaliacao_professors.avaliacao1,avaliacao_professors.avaliacao2
+        ,avaliacao_professors.avaliacao3,avaliacao_professors.avaliacao4,
+        avaliacao_professors.resultado,date(avaliacao_professors.created_at) as 'data'
+     FROM professors JOIN avaliacao_professors on(professors.id=avaliacao_professors.professor)
+     				 JOIN users on(users.id=avaliacao_professors.avaliador)	
+    WHERE avaliacao_professors.id=$request->pesquisar;";
+
+          $avaliador=User::where('secretaria',1)->get();
+          $professor=professor::get();
+
+
+          $avaliacao=DB::select($sql);
+        
+             
+          if($buscar=avaliacao_professor::find($request->pesquisar)){
+
+             return view('cadastro.avaliacaodocente',compact('avaliador','professor','avaliacao'));     
+          }else{
+
+            alert()->error('Dados não encontrado',$request->pesquisar);
+            return redirect()->route('avaliar.avaliarIndex');
+          }
+       
+
     }
     public function ProfessorDisciplina(string $id){
 
@@ -81,7 +189,7 @@ class professorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -89,7 +197,7 @@ class professorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
           if($professore=professor::findorfail($id)){

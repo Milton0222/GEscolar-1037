@@ -76,7 +76,7 @@ class turmaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
         //
     }
@@ -84,7 +84,7 @@ class turmaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         //
         if($turma=turma::findorfail($id)){
