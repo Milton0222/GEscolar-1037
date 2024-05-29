@@ -163,6 +163,105 @@
     </div>
   </div>
 </div>
+              <!--botao actualiza-->
+              <div class="tooltip-container">
+                                
+                      <button  class="text btn-histor" data-bs-toggle="modal" data-bs-target="#actualizar{{$lista->id}}"><i class="bi bi-person-fill-add"></i></button> 
+                      <span class="tooltip">Actualizar</span>
+
+                    </div>
+                    <!-- Modal actualizar professor-->
+<div  class="modal fade" id="actualizar{{$lista->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div  class="modal-dialog modal-dialog-centered modal-lg"  style="width:2000px">
+    <div class="modal-content" style="width:100%">
+      <div class="modal-header">
+        <h5  class="modal-title" id="exampleModalLabel">ACTUALIZAR PROFESSOR</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        
+<br>
+                      <form class="form" action="{{route('professor.update',$lista->id)}}" method="post">
+
+                       @csrf
+                       @method('put')
+                       <div >
+                       <label for="">Nome Completo</label><br>
+                       <input type="text" name="nome" class="input" value="{{$lista->nome}}"  required >
+                       </div>
+
+                       <div class="model-div">
+                            <div class="div">
+                              <label for="">Genero</label><br>
+                              <select name="sexo" id="">
+                                <option value="{{$lista->sexo}}" selected>{{$lista->sexo}}</option>
+                                  <option value="M">Masculino</option>
+                                  <option value="F">Feminino</option>
+                              </select>
+                            
+                              </div>
+                              
+                            <div class="div">
+                            <label for="">B. Identidade</label><br>
+                            <input type="text" name="bi" class="input" value="{{$lista->bi}}"  required >
+                            </div>
+                        </div>
+
+                        <div class="model-div">
+                       <div class="div">
+                       <label for="">Grau academico</label><br>
+                     
+                       <select name="grauacademico" id="">
+                          <option value="{{$lista->grauacademico}}" selected>{{$lista->grauacademico}}</option>
+                            <option value="Phd">Phd</option>
+                            <option value="Msc">Msc</option>
+                            <option value="Lic">Lic</option>
+                            <option value="Tecnico">Tecnico</option>
+                            
+                        </select>
+                     
+                       </div>
+
+                       <div class="div">
+                       <label for="">Data de Nascimento</label><br>
+                       <input type="date" name="datanascimento" class="input" value="{{$lista->datanascimento}}"  required >
+                       </div>
+                    </div>
+                       
+                    <div class="model-div">
+                       <div class="div">
+                       <label for="">Municipio</label><br>
+                       <input type="text" name="municipio" class="input" value="{{$lista->municipio}}" required >
+                       </div>
+
+                       <div class="div">
+                       <label for="">Morada</label><br>
+                       <input type="text" name="morada" class="input" value="{{$lista->morada}}" required >
+                       </div>
+                    </div>
+                       
+                    <div class="model-div">
+                        <div class="div">
+                       <label for="">Contacto</label><br>
+                       <input type="text" name="contacto" class="input" value="{{$lista->contacto}}"  required >
+                       </div>
+
+                       <div class="div">
+                     <button class="form-btn" id="btn-id">Salvar</button>
+                       </div>
+                    </div>
+                      
+                   </form>
+   
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!-- actualizar end -->
+
+
                   <a href="{{route('professor.ver',$lista->id)}}" class="classe-disc">Disciplina</a>
                  
                 </div>

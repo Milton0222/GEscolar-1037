@@ -106,6 +106,15 @@ class disciplinaController extends Controller
     public function update(Request $request,$id)
     {
         //
+        if($disc=disciplina::find($id)){
+            $disc->update([
+                'nome'=>$request->nome
+            ]);
+
+            alert()->success($disc['nome'],'Actualizado');
+        }
+
+        return redirect()->back();
     }
 
     /**

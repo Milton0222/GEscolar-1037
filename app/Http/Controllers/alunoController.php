@@ -113,6 +113,30 @@ return view('cadastro.aluno', compact('alunos','classe'));
     public function update(Request $request,$id)
     {
         //
+    
+
+        $anoAActual=date('Y');
+        $anoNascimento= explode('-',$request->datanascimento);
+
+
+        if($aluno=estudante::find($id)){
+            $aluno->update([
+                'nome'=>$request->nome,
+                'bi'=>$request->bi,
+                'sexo'=>$request->sexo,
+                'nomepai'=>$request->nomepai,
+                'nomemae'=>$request->nomemae,
+                'morada'=>$request->morada,
+                'naturalidade'=>$request->naturalidade,
+                'contacto'=>$request->contacto,
+                'datanascimento'=>$request->datanascimento,
+                'idade'=>$anoAActual-$anoNascimento[0],
+            ]);
+
+            Alert()->success($request->nome,'Dados Actualizados');
+        
+        }
+        return redirect()->back();
     }
 
     /**

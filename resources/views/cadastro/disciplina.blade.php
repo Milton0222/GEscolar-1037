@@ -92,6 +92,48 @@
     </div>
   </div>
 </div>
+              <!--botao actualiza-->
+              <div class="tooltip-container">
+                                              
+                                <button  class="text btn-histor" data-bs-toggle="modal" data-bs-target="#actualizar{{$lista->id}}"><i class="bi bi-person-fill-add"></i></button> 
+                                <span class="tooltip">Actualizar</span>
+          
+                              </div>
+                              <!-- Modal actualizar disc-->
+                  <div  class="modal fade" id="actualizar{{$lista->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div  class="modal-dialog modal-dialog-centered modal-lg"  style="width:2000px">
+                      <div class="modal-content" style="width:100%">
+                        <div class="modal-header">
+                          <h5  class="modal-title" id="exampleModalLabel">ACTUALIZAR DISCIPLINA</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" >
+                  <br>
+                                        <form class="form" action="{{route('disciplina.update',$lista->id)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        
+                                        <div>
+                                        <label for="">Nome Disciplina</label><br>
+                                        <input type="text" name="nome" class="input" value="{{$lista->nome}}"  required >
+                                        </div>
+
+                                        <br>
+                                      <button class="form-btn">Salvar</button>
+                                    </form>
+                    
+
+                        </div>
+                      
+                      </div>
+                    </div>
+                  </div>
+                  <!-- actualizar end -->
+
+
+
+                              
+                              <!--botao adicionar professor-->
                   <button type="" class="disc-proff" data-bs-toggle="modal" data-bs-target="#lecionar{{$lista->id}}">Add Professor</button> 
                     
 

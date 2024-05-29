@@ -192,6 +192,22 @@ class professorController extends Controller
     public function update(Request $request, $id)
     {
         //
+    
+        if($profe=professor::find($id)){
+               $profe->update([
+                'nome'=>$request->nome,
+                'morada'=>$request->morada,
+                'sexo'=>$request->sexo,
+                'contacto'=>$request->contacto,
+                'datanascimento'=>$request->datanascimento,
+                'grauacademico'=>$request->grauacademico,
+                'municipio'=>$request->municipio,
+                'bi'=>$request->bi,
+               ]);
+               alert()->success($profe['nome'],'Dados Actualizados');
+        }
+
+        return redirect()->back();
     }
 
     /**

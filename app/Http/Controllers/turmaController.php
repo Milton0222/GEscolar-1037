@@ -79,6 +79,20 @@ class turmaController extends Controller
     public function update(Request $request,$id)
     {
         //
+
+        if($turm=turma::find($id)){
+            $turm->update([
+                'nome'=>$request->nome,
+                'periodo'=>$request->periodo,
+                'quantidade'=>$request->quantidade,
+                'classe'=>$request->classe,
+            ]);
+
+            alert()->success($turm['nome'],'Dados Actualizados');
+            
+        }
+
+        return redirect()->back();
     }
 
     /**

@@ -80,6 +80,7 @@ Route::middleware([
     Route::post('/aluno/salvar',[alunoController::class, 'store'])->name('aluno.store')->middleware('adimin');
     Route::get('/aluno/buscar',[alunoController::class,'show'])->name('aluno.pesquisar')->middleware('adimin');
     Route::get('/aluno/{id}',[alunoController::class,'destroy'])->name('aluno.destroy')->middleware('adimin');
+    Route::put('/aluno/actualizar/{id}',[alunoController::class, 'update'])->name('aluno.update');
     
     //matricula
     
@@ -103,6 +104,7 @@ Route::middleware([
     Route::get('/professor/buscar', [professorController::class,'show'])->name('professor.pesquisar')->middleware('adimin');
     Route::get('/professor/{id}', [professorController::class,'destroy'])->name('professor.destroy')->middleware('adimin');
     Route::get('/professor/disciplina/{id}',[professorController::class ,'ProfessorDisciplina'])->name('professor.ver')->middleware('adimin');
+    Route::put('/professor/ctualizar/{id}',[professorController::class, 'update'])->name('professor.update');
 
     //Avaliacao professor
     Route::get('/avaliar/docente',[professorController::class,'avaliarIndex'])->name('avaliar.avaliarIndex');
@@ -125,7 +127,7 @@ Route::middleware([
     Route::post('/turma/salvar',[turmaController::class, 'store'])->name('turma.store')->middleware('adimin');
     Route::get('/turma/{id}',[turmaController::class, 'destroy'])->name('turma.destroy')->middleware('adimin');
     Route::get('turma/aluno/{id}',[turmaController::class ,'turmaAluno'])->name('turma.ver')->middleware('adimin');
-    
+    Route::put('/turma/actualizar/{id}',[turmaController::class,'update'])->name('turma.update');
     //disciplina
     Route::get('/cadastrar/disciplina',[disciplinaController::class, 'index'])->name('disciplina.index')->middleware('adimin');
     Route::post('/disciplina/salvar',[disciplinaController::class, 'store'])->name('disciplina.store')->middleware('adimin');
@@ -133,7 +135,7 @@ Route::middleware([
     Route::post('/disciplina/class',[disciplinaController::class,'selecionar'])->name('disciplina.classe')->middleware('adimin');
     Route::post('/disciplina/professor',[disciplinaController::class,'lecionar'])->name('disciplina.lecionar')->middleware('adimin');
     Route::get('/disciplina/professores/{id}',[disciplinaController::class,'disciplinaProfessor'])->name('disciplina.ver')->middleware('adimin');
-    
+    Route::put('/disciplina/aactualizar/{id}',[disciplinaController::class,'update'])->name('disciplina.update');
     
     //Pauta
     Route::get('/pauta',[pautaController::class, 'index'])->name('pauta.index');

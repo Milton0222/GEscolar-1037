@@ -37,9 +37,13 @@ class classeController extends Controller
     {
         //
   
-
+       $classe=classe::where('nome',$request->nome)->first();
+        if($classe)
+            alert()->error($classe['nome'],'Dados existente');
+        else{
         classe::create(['nome'=>$request->nome]);
             Alert()->success($request->nome,'Registado.');
+        }
         return redirect()->back();
     }
 

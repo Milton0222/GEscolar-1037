@@ -6,7 +6,7 @@
     <div class="modal-content" style="width:100%">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">REGISTAR <span></span>ALUNO</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body" >
 <br>
@@ -187,6 +187,107 @@
                     </a>
                 
                   </div>
+
+                  <!--botao actualiza-->
+                  <div class="tooltip-container">
+                  
+                  <button  class="text btn-histor" data-bs-toggle="modal" data-bs-target="#actualizar{{$lista->id}}"><i class="bi bi-person-fill-add"></i></button> 
+                  <span class="tooltip">Actualizar</span>
+
+                </div>
+                <!-- Modal actualizar -->
+<div  class="modal fade" id="actualizar{{$lista->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div  class="modal-dialog modal-dialog-centered modal-lg"  style="width:2000px">
+    <div class="modal-content" style="width:100%">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ACTUALIZAR <span></span>ALUNO</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+<br>
+                      <form class="form" action="{{route('aluno.update',$lista->id)}}" method="post" enctype="multipart/form-data">
+                       @csrf
+                       @method('put')
+                       <div>
+                               <label for="">Nome Completo</label><br>
+                            <input type="text" name="nome" class="input" value="{{$lista->nome}}"  required >
+                                 
+                       </div>  
+                       <div>
+                       <label for="">Nº de Identidade</label><br>
+                       <input type="text" name="bi" class="input" maxlength="14" value="{{$lista->bi}}"  required >
+                       </div>
+
+                       <div class="model-div">
+
+                              <div class="div">
+                                <label for="">Genero</label><br>
+                                <select name="sexo" id="" required>
+                                  <option value="{{$lista->sexo}}" selected>{{$lista->sexo}}</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Feminino</option>
+                                </select> 
+                                               
+                                </div>
+                               
+                              <div class="div">
+                              <label for="">Nome do Pai</label><br>
+                              <input type="text" name="nomepai" class="input" value="{{$lista->nomepai}}"  required >
+                              </div>
+                        </div>
+                      
+
+                            <div class="model-div">
+                               <div class="div">
+                              <label for="">Nome da Mae</label><br>
+                              <input type="text" name="nomemae" class="input" value="{{$lista->nomemae}}"  required >
+                               </div>
+                               <div class="div">
+                                    <label for="">Morada</label><br>
+                                    <input type="text" name="morada" class="input"  value="{{$lista->morada}}" required >
+                                  </div>
+                           
+                         </div>
+
+                             <div class="model-div">
+                               
+                                  <div class="div">
+                                    <label for="">Naturalidade</label><br>
+                                    <input type="text" name="naturalidade" class="input" value="{{$lista->naturalidade}}" required >
+                                  </div>
+                                
+                                    
+                                <div class="div">
+                                <label for="">Data de nascimento</label><br>
+                                <input type="date" name="datanascimento" class="input" value="{{$lista->datanascimento}}"  required >
+                                </div>
+
+                              
+                        </div>
+                         
+                        <div class="model-div">
+                            <div class="div">
+                            <label for="">Contacto</label><br>
+                            <input type="number" name="contacto" class="input" maxlength="9"  value="{{$lista->contacto}}" required >
+                           </div> 
+                         
+                        
+                          <div class="div">
+                            <button class="form-btn" id="btn-id">Salvar</button>
+                          </div>
+                       </div> 
+                       <br>
+                    
+                   </form>
+   
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!--actualizar end  -->
+
                  
                 </div>
             </td>

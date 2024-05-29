@@ -43,21 +43,10 @@
                         </select>
                       
                         </div>
-                        
-                      
-                   
-                     
-                  
-                
-                    
-
                        <br>
                      <button class="form-btn">Salvar</button>
                    </form>
-   
-
       </div>
-     
     </div>
   </div>
 </div>
@@ -131,6 +120,66 @@
     </div>
   </div>
 </div>
+                                    <!--botao actualiza-->
+                                    <div class="tooltip-container">
+                                              
+                                              <button  class="text btn-histor" data-bs-toggle="modal" data-bs-target="#actualizar{{$lista->id}}"><i class="bi bi-person-fill-add"></i></button> 
+                                              <span class="tooltip">Actualizar</span>
+                        
+                                            </div>
+  <!-- Modal actualizar turma -->
+                        <div  class="modal fade" id="actualizar{{$lista->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div  class="modal-dialog modal-dialog-centered modal-lg"  style="width:2000px">
+                            <div class="modal-content" style="width:100%">
+                              <div class="modal-header">
+                                <h5  class="modal-title" id="exampleModalLabel">ACTUALIZAR TURMA</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body" >
+                                                   <br>
+                                              <form class="form" action="{{route('turma.update',$lista->id)}}" method="post">
+                                              @csrf
+                                              @method('PUT')
+                                              <div>
+                                              <label for="">Nome Completo</label><br>
+                                              <input type="text" name="nome" class="input" value="{{$lista->nome}}"  required >
+                                              </div>
+                                              <div>
+                                              <label for="">Capacidade</label><br>
+                                              <input type="text" name="quantidade" class="input" value="{{$lista->quantidade}}"  required >
+                                              </div>
+                                              <div>
+                                              <label for="">Periodo</label><br>
+                                                <select name="periodo" id="">
+                                                  <option value="{{$lista->periodo}}" selected>{{$lista->periodo}}</option>
+                                                
+                                                    <option value="Tarde">Tarde</option>
+                                                    <option value="Manhã">Manhã</option>   
+                                                </select>
+                                              </div>
+                                              
+                                              
+                                              <div>
+
+                                                <label for="">Classe</label><br>
+                                                <select name="classe" id="">
+                                                  <option selected>{{$lista->classe}}Classe</option>
+                                              @foreach($classe as $cl)
+                                                    <option value="{{$cl->id}}">{{$cl->nome}}Classe</option>
+                                                @endforeach
+                                                    
+                                                </select>
+                                              
+                                                </div>
+                                              <br>
+                                            <button class="form-btn">Salvar</button>
+                                          </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--  -->
+                                        
                       <a href="{{route('turma.ver',$lista->id)}}" class="turma-alun"> <i class="fa fa-user "></i> Alunos</a>
                     
                     </div>
