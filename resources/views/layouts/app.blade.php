@@ -55,7 +55,7 @@
 
         @livewireScripts
     <script src="{{asset('assetes/bootstrap/js/bootstrap.bundle.min.js')}}"> </script>
-    
+  
 
     
 </html>

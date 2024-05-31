@@ -47,6 +47,26 @@ class professorController extends Controller
     public function avaliarStore(Request $request){
         $professor=professor::find($request->professor);
 
+
+        $media=($request->avaliacao1+$request->avaliacao2+$request->avaliacao3+$request->avaliacao4)/4;
+        $obs='';
+
+        if($media<=9){
+                $obs='Mau';
+        }
+        elseif($media>=10 && $media<=13){
+            $obs='Suficiente';
+        }
+        elseif($media>=14 && $media<=16){
+            $obs='Bom';
+        }
+        elseif($media>=17 && $media<=20){
+              $obs='Excelente';
+            
+        }elseif($media<=5){
+            $obs='Medíocre';
+        }
+        
               avaliacao_professor::create([
                 'professor'=>$request->professor,
                 'avaliador'=>$request->avaliador,
@@ -54,7 +74,7 @@ class professorController extends Controller
                 'avaliacao2'=>$request->avaliacao2,
                 'avaliacao3'=>$request->avaliacao3,
                 'avaliacao4'=>$request->avaliacao4,
-                'resultado'=>'Bom'
+                'resultado'=>$obs
               ]);
            
               alert()->success('Avaliação registada do professor/a.',$professor['nome']);
@@ -66,6 +86,25 @@ class professorController extends Controller
     public function avaliarUpdate(Request $request,$id){
 
           if($avaliar=avaliacao_professor::find($id)){
+              
+                            $media=($request->avaliacao1+$request->avaliacao2+$request->avaliacao3+$request->avaliacao4)/4;
+                            $obs='';
+                    
+                            if($media<=9){
+                                    $obs='Mau';
+                            }
+                            elseif($media>=10 && $media<=13){
+                                $obs='Suficiente';
+                            }
+                            elseif($media>=14 && $media<=16){
+                                $obs='Bom';
+                            }
+                            elseif($media>=17 && $media<=20){
+                                $obs='Excelente';
+                                
+                            }elseif($media<=5){
+                                $obs='Medíocre';
+                            }
               $professor=professor::find($request->professor);
 
                         $avaliar->update([
@@ -75,7 +114,7 @@ class professorController extends Controller
                                 'avaliacao2'=>$request->avaliacao2,
                                 'avaliacao3'=>$request->avaliacao3,
                                 'avaliacao4'=>$request->avaliacao4,
-                                'resultado'=>'Suficiente'
+                                'resultado'=>$obs
                         ]);
                         alert()->success('Dados da Avaliação  do professor/a actualizado.',$professor['nome']);
 

@@ -52,7 +52,30 @@ Route::middleware([
   
           $turma=DB::select($sql);
               $classe=classe::get();
-        return view('dashboard',compact('aluno','professor','user','turma','classe'));
+
+              $sql="SELECT professors.nome, avaliacao_professors.resultado,(avaliacao_professors.avaliacao1+avaliacao_professors.avaliacao2+avaliacao_professors.avaliacao3+avaliacao_professors.avaliacao4)/4 as 'media'
+              FROM professors JOIN avaliacao_professors on(professors.id=avaliacao_professors.professor);";
+
+              $avaliacao=DB::select($sql);
+
+              $noome=[];
+              $resultado=[];
+
+          
+
+              foreach($avaliacao as $lista){
+                   $noome[]=$lista->nome;
+                   $resultado[]=$lista->media;
+
+              }
+
+              
+              $nome=implode("','",$noome);
+              $result=implode("','",$resultado);
+
+              
+
+        return view('dashboard',compact('aluno','professor','user','turma','classe','nome','result'));
     })->name('dashboard');
 
 
