@@ -21,7 +21,7 @@
     <table class="table" id="tabelaa">
         <thead>
           <tr >
-          <th scope="col">Matricuula</th>
+          <th scope="col">Matricula</th>
             <th scope="col">Nome</th>
             <th scope="col">B.Identidade</th>
             <th scope="col">Sexo</th>
@@ -145,7 +145,100 @@
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
              
-                  <a class="nav-link" href="{{route('recibo.show', $lista->id)}}">Recibo</a>
+                  <a class="nav-link"  data-bs-toggle="modal" data-bs-target="#propina1{{$lista->idpropina}}">Recibo</a>
+
+<!-- Modal -->
+<div class="modal fade" id="propina1{{$lista->idpropina}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header" >
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Comprovativo de pagamento {{$lista->nome}}</h1>
+        <button type="" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="recibo-pagamento" >
+
+             
+      <div class="sub-recibo">
+            <div class="recib-titulos">
+               <h1>Recibo de Pa gamento</h1>
+            <h2>ESCOLA BG 1037 CDTE AUGUSTO CHIPENDA </h2> 
+            </div>
+            
+                
+                <div class="alun">
+                    <div class="alun2">
+                        <label for="">Aluno</label>
+                    <select name="" id="" disabled>
+                        <option value="">{{$lista->nome}}</option>
+                     
+                    </select> 
+                    </div>
+
+                    <div class="alun2">
+                        <label for="">Número de Matrícula</label>
+                    <select name="" id=""  disabled>
+                        <option value="">{{$lista->id}}</option>
+                        
+                    </select> 
+                    </div>
+
+                </div>
+
+                <div class="alun">
+                    <div class="alun3">
+                        <label for="">Ano Lectivo</label>
+                        <select name="" id="" disabled>
+                            <option value="">{{$lista->anoLectivo}}</option>
+                         
+                        </select>
+                    </div>
+
+                    <div class="alun3">
+                    <label for="">Valor</label>
+                   <select name="" id="">
+                       <option  value="{{App\Models\propina::find($lista->idpropina)->valor}}">{{App\Models\propina::find($lista->idpropina)->valor}}</option>
+                   </select>
+                    </div>
+              
+                    <div class="alun3">
+                    <label for="">Mês</label>
+                    <select name="" id="" disabled>
+                        <option value="">{{$lista->mes}}</option>
+                    </select>
+                     </div>
+
+               </div>
+               
+               
+               <div class="alun">
+                
+                    <div class="assinatura">
+                        <label for="">Responsavel</label>
+                        <select name="" id="" disabled>
+                            <option value="">{{App\Models\User::find($lista->usuario)->name}}</option>
+                        </select>
+                    </div>
+
+                    <div class="dataa">
+                       <span>Data de Pagamento</span><br>
+                        <span>{{$lista->created_at}}</span>
+                    </div>
+                </div>
+
+               <div class="alun5">
+            <span>Recibo Numero: <span>{{$lista->idpropina}}</span></span>
+                </div>
+        </div>
+
+
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
                  
                 </div>
             </td>

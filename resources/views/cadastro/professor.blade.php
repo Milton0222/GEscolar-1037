@@ -31,7 +31,7 @@
                               
                             <div class="div">
                             <label for="">B. Identidade</label>
-                            <input type="text" name="bi" class="input"  required >
+                            <input type="text" name="bi" class="input" maxlength="14" minlength="10"  required >
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@
                     <div class="model-div">
                         <div class="div">
                        <label for="">Contacto</label>
-                       <input type="text" name="contacto" class="input"  required >
+                       <input type="number" name="contacto" class="input"  required >
                        </div>
 
                        <div class="div">
