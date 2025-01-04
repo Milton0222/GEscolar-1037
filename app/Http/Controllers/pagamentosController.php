@@ -89,7 +89,7 @@ class pagamentosController extends Controller
 
 
               $sql="SELECT  estudantes.id,estudantes.nome, estudantes.sexo
-              ,propinas.mes,propinas.anoLectivo,propinas.created_at
+              ,propinas.mes,propinas.anoLectivo,propinas.created_at, propinas.valor, propinas.id as 'idpropina', propinas.usuario
               FROM estudantes JOIN propinas on(estudantes.id=propinas.estudante)
                               JOIN matriculas on(estudantes.id=matriculas.estudante)";
                        $pago=DB::select($sql);  
