@@ -13,9 +13,17 @@
 <br>
                       <form class="form" action="{{route('professor.store')}}" method="post">
                        @csrf
-                       <div >
-                       <label for="">Nome Completo</label>
-                       <input type="text" name="nome" class="input"  required >
+                       <div class="row">
+                          <div class="col">
+                          <label for="">Nome Completo</label>
+                          <input type="text" name="nome" class="input"  required >
+
+                          </div>
+                           <div class="col">
+                           <label for="">Email</label>
+                           <input type="email" name="email" class="input"  required >
+                           </div>
+                       
                        </div>
 
                        <div class="model-div">

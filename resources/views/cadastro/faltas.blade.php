@@ -40,6 +40,31 @@
                     <button type="" class="btn-apagar" data-bs-toggle="modal" data-bs-target="#apagar{{$lista->id}}"> <i class='bx bx-trash'></i></button>
                     <span class="tooltip" style="background-color: rgb(237, 102, 102)">Apagar</span>
                   </div>
+<!-- Modal -->
+<div class="modal fade" id="apagar{{$lista->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="background-color: rgb(89, 4, 4);">
+  <div class="modal-dialog" >
+    <div class="modal-content" style="background-color: black; color: red;">
+      <div class="modal-header" >
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Apagar {{App\Models\estudante::find($lista->estudante)->nome}}</h1>
+        <button type="" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="background-color: black;">
+
+              <form class="" method="GET" action="{{route('falta.destroy',$lista->id)}}">
+                  @method('DELETE')
+
+                <h1>Comfirmar á operação selecionada!</h1>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Não</button>
+                      <button type="submit" class="btn btn-danger">Sim</button>
+                  </div>
+              </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+                  
                   <div class="tooltip-container">
                   
                   <button  class="text btn-histor" data-bs-toggle="modal" data-bs-target="#actualizar{{$lista->id}}"><i class="bi bi-person-fill-add"></i></button> 

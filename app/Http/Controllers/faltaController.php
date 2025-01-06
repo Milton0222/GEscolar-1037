@@ -116,5 +116,12 @@ class faltaController extends Controller
     public function destroy($id)
     {
         //
+          if($verificar=presenca::find($id)){
+               $verificar->delete();
+
+               alert()->success($verificar['id'],'Presença eliminada com sucesso');
+
+               return redirect()->route('falta.index');
+          }
     }
 }

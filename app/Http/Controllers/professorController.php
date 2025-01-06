@@ -7,6 +7,7 @@ use App\Models\professor;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class professorController extends Controller
 {
@@ -200,7 +201,16 @@ class professorController extends Controller
     {
         //
     
-       professor::create($request->all());
+      $verificar= professor::create($request->all());
+         if($verificar){
+               User::create([
+                'name'=>$request->nome,
+                'email'=>$request->email,
+                'professor'=>1,
+                'password'=>Hash::make(123456789)
+               ]);
+         }
+         
               alert()->success($request->nome,'Registado.');
        return redirect()->back();
     }

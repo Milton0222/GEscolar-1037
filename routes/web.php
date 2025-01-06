@@ -176,6 +176,7 @@ Route::middleware([
     Route::get('/turma/alunos/{id}',[faltaController::class, 'show'])->name('turma.aluno');
     Route::post('/presenca/marcar',[faltaController::class, 'store'])->name('aluno.presenca');
     Route::get('/falta/ver',[faltaController::class, 'index'])->name('falta.index');
+    Route::get('/falta/delete/{id}',[faltaController::class, 'destroy'])->name('falta.destroy');
 
 
 });

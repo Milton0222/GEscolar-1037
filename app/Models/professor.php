@@ -18,5 +18,6 @@ class professor extends Model
             'morada',
             'contacto',
             'email'
+      
     ]);
 }

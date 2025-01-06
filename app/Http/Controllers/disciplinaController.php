@@ -89,7 +89,7 @@ class disciplinaController extends Controller
     {
         //
         $sql="SELECT professors.id,professors.nome,professors.bi,professors.grauacademico,professors.sexo,
-		professors.contacto,professors.municipio,professors.morada
+		professors.contacto,professors.municipio,professors.morada,professors.datanascimento
       
       FROM professors JOIN professor_disciplinas  on(professors.id=professor_disciplinas.professor)
                       JOIN disciplinas on(disciplinas.id=professor_disciplinas.disciplina)
