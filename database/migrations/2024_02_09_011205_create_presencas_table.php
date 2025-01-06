@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->date('data');
             $table->unsignedBigInteger('estudante');
-            $table->unsignedBigInteger('disciplina');
+            $table->unsignedBigInteger('turma');
+            $table->enum('tipo',['P','F']);
             $table->foreign('estudante')->references('id')->on('estudantes')->onDelete('cascade');
-            $table->foreign('disciplina')->references('id')->on('disciplinas')->onDelete('cascade');
+            $table->foreign('turma')->references('id')->on('turmas')->onDelete('cascade');
             $table->timestamps();
         });
     }

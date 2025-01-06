@@ -44,6 +44,7 @@
             <li><a class="dropdown-item" href="{{route('turma.index')}}">Turma</a></li>
             <li><a class="dropdown-item" href="{{route('ver.pauta')}}">Pauta</a></li>
             <li><a class="dropdown-item" href="{{route('v-aluno')}}">Estudante</a></li>
+            <li><a class="dropdown-item" href="{{route('falta.index')}}">Faltas</a></li>
             <li><a class="dropdown-item" href="{{route('v-Prof')}}">Professor</a></li>
             <li><a class="dropdown-item" href="{{route('disciplina.index')}}">Disciplina</a></li>
           

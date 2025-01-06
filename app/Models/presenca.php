@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class presenca extends Model
 {
     use HasFactory;
+
     protected $fillable=([
             'data',
             'estudante',
-            'disciplina'
+            'turma',
+            'tipo'
     ]);
 }

@@ -181,7 +181,8 @@
                         <!--  -->
                                         
                       <a href="{{route('turma.ver',$lista->id)}}" class="turma-alun"> <i class="fa fa-user "></i> Alunos</a>
-                    
+
+                      <a href="{{route('turma.aluno',$lista->id)}}" class="btb btn-success" style="margin-left: 10px;" > <i class="fa fa-user "></i>Presença</a>
                     </div>
             </td>
       

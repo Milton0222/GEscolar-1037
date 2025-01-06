@@ -17,5 +17,6 @@ class professor extends Model
             'municipio',
             'morada',
             'contacto',
+            'email'
     ]);
 }

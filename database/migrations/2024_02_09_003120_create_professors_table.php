@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->String('nome');
             $table->String('bi',14);
+            $table->string('email')->unique();
             $table->enum('sexo',['F','M']);
             $table->date('datanascimento');
             $table->enum('grauacademico',['Tecnico','Lic','Msc','Phd'])->default('Tecnico');

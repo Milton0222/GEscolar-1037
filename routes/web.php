@@ -4,6 +4,7 @@ use App\Http\Controllers\alunoController;
 use App\Http\Controllers\classeController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\disciplinaController;
+use App\Http\Controllers\faltaController;
 use App\Http\Controllers\matriculasController;
 use App\Http\Controllers\pagamentosController;
 use App\Http\Controllers\pautaController;
@@ -169,6 +170,12 @@ Route::middleware([
     Route::get('/Ver/pauta',[pautaController::class,'VerPauta'])->name('ver.pauta');
     Route::get('/pauta/apagar/{id}',[pautaController::class,'destroy'])->name('pauta.destroy');
     Route::get('/Pauta/alunos/{id}',[pautaController::class, 'verPautaAluuno'])->name('pauta.alunos');
+
+    //gerir faltas
+
+    Route::get('/turma/alunos/{id}',[faltaController::class, 'show'])->name('turma.aluno');
+    Route::post('/presenca/marcar',[faltaController::class, 'store'])->name('aluno.presenca');
+    Route::get('/falta/ver',[faltaController::class, 'index'])->name('falta.index');
 
 
 });
