@@ -18,8 +18,9 @@ class faltaController extends Controller
     {
         //
               $faltas=presenca::get();
+              $estudantes=estudante::get();
 
-              return view('cadastro.faltas',compact('faltas'));
+              return view('cadastro.faltas',compact('faltas','estudantes'));
     }
 
     /**
@@ -108,6 +109,16 @@ class faltaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if($verificar=presenca::find($id)){
+              $verificar->update([
+                'estudante'=>$request->estudante,
+                'tipo'=>$request->tipo,
+                'data'=>$request->data
+              ]);
+              alert()->success($verificar['id'],'Presença actualizada com sucesso');
+
+              return redirect()->route('falta.index');
+        }
     }
 
     /**

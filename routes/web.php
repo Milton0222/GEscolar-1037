@@ -177,6 +177,7 @@ Route::middleware([
     Route::post('/presenca/marcar',[faltaController::class, 'store'])->name('aluno.presenca');
     Route::get('/falta/ver',[faltaController::class, 'index'])->name('falta.index');
     Route::get('/falta/delete/{id}',[faltaController::class, 'destroy'])->name('falta.destroy');
+    Route::put('/falta/update/{id}',[faltaController::class, 'update'])->name('falta.update');
 
 
 });
