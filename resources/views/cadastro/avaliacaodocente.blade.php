@@ -33,20 +33,20 @@
 
                                                 <div class="model-div">
                                                         <div class="div">
-                                                        <label for="">Avalição 1</label><br>
+                                                        <label for="">Ensino</label><br>
                                                         <input type="number" name="avaliacao1" class="input" required >
                                                         </div>
 
                                                         <div class="div">
-                                                        <label for="">Avalição 2</label><br>
+                                                        <label for="">Investigação cientifica</label><br>
                                                         <input type="number" name="avaliacao2" class="input" required >
                                                         </div>
                                                         <div class="div">
-                                                        <label for="">Avalição 3</label><br>
+                                                        <label for="">Extensão</label><br>
                                                         <input type="number" name="avaliacao3" class="input" required >
                                                         </div>
                                                         <div class="div">
-                                                        <label for="">Avalição 4</label><br>
+                                                        <label for="">Gestão</label><br>
                                                         <input type="number" name="avaliacao4" class="input" required >
                                                         </div>
                                                     

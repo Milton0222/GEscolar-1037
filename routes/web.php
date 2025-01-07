@@ -178,6 +178,7 @@ Route::middleware([
     Route::get('/falta/ver',[faltaController::class, 'index'])->name('falta.index');
     Route::get('/falta/delete/{id}',[faltaController::class, 'destroy'])->name('falta.destroy');
     Route::put('/falta/update/{id}',[faltaController::class, 'update'])->name('falta.update');
+    Route::get('/falta/search',[faltaController::class, 'search'])->name('falta.search');
 
 
 });

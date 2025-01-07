@@ -178,7 +178,7 @@ margin-top: 20px;
     .title {
       text-align: center;
       font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            "Lucida Sans Unicode", "Geneva", Verdana, sans-serif;
       margin: 10px 0 30px 0;
       font-size: 25px;
       font-weight: 500;
@@ -268,14 +268,6 @@ margin-top: 20px;
     }
     
     }
-
-
-  /*input de pesquisa */
-  
-  
-  /*fim input de pesquisa */
-  
-  
   
   
   .Containerprincipal{
@@ -473,12 +465,24 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(205, 239, 250) 3
     position: relative;
   }
   
+  /*estilizando inputs
+  .....
+  */
+
   .search input[type="text"] {
     width: 200px;
     padding: 4px;
     border: none;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .search input[type="number"]{
+    width: 200px;
+    padding: 4px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0  10px rgba(0, 0, 0, 0.1);
   }
   
   .search button[type="submit"] {

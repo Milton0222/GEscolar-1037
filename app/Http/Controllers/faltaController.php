@@ -98,9 +98,25 @@ class faltaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function search(Request $request)
     {
         //
+       
+
+           if($verificar=presenca::where('estudante',$request->pesquisar)->first()){
+
+            $faltas=presenca::where('estudante',$request->pesquisar)->get();
+
+              $estudantes=estudante::get();
+
+              return view('cadastro.faltas',compact('faltas','estudantes'));
+
+           }else{
+                     alert()->info('Alerta, dados','NÃO ENCONTRADO.');
+            return redirect()->route('falta.index');
+           }
+              
+             
     }
 
     /**

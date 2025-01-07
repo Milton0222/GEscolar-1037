@@ -6,9 +6,10 @@
         </div>
                 <div class="cadastrar-pesquisar">
                  <a href="" data-bs-toggle="modal" data-bs-target="#cadastroProf"><i class="fa-solid fa-plus"></i> Novo</a>
-                 <form action="" method="get" name="pesquisar">
+                 <form action="{{route('falta.search')}}" method="get">
+                    @csrf
                  <div class="search">
-                      <input placeholder="Search..." type="text" required>
+                      <input placeholder="Search..." type="number" name="pesquisar" required>
                       <button type="submit">Ir</button>
                     </div>
                  </form>
