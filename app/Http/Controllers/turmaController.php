@@ -15,7 +15,7 @@ class turmaController extends Controller
     public function index()
     {
         //
-        $sql="SELECT turmas.id,turmas.nome,turmas.periodo,turmas.quantidade,
+        $sql="SELECT turmas.id,turmas.nome,turmas.periodo,turmas.quantidade,turmas.curso,turmas.sala,
         classes.nome as 'classe'
         FROM turmas JOIN classes on(turmas.classe=classes.id)";
         $classe=classe::get();

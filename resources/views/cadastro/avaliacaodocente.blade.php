@@ -12,7 +12,7 @@
                                                 <div class="div">
                                                     <label for="">Professor</label>
                                                     <select name="professor" id="" required>
-                                                    <option selected>Selecionar funcionaario</option>
+                                                    <option selected>Selecionar</option>
                                                         @foreach($professor as $plista)
                                                         <option value="{{$plista->id}}">{{$plista->nome}}</option>
                                                         @endforeach 
@@ -21,7 +21,7 @@
                                                     <div class="div">
                                                     <label for="">Avaliador</label>
                                                     <select name="avaliador" id="" required>
-                                                    <option selected>Selecionar funcionaario</option>
+                                                    <option selected>Selecionar </option>
                                                         @foreach($avaliador as $plista)
                                                         <option value="{{$plista->id}}">{{$plista->name}}</option>
                                                         @endforeach 
@@ -178,20 +178,20 @@
 
                                                 <div class="model-div">
                                                         <div class="div">
-                                                        <label for="">Avalição1</label><br>
+                                                        <label for="">Ensino</label><br>
                                                         <input type="number" name="avaliacao1" class="input" required value="{{$lista->avaliacao1}}" >
                                                         </div>
 
                                                         <div class="div">
-                                                        <label for="">Avalição2</label><br>
+                                                        <label for="">Investigação científica</label><br>
                                                         <input type="number" name="avaliacao2" class="input" required value="{{$lista->avaliacao2}}">
                                                         </div>
                                                         <div class="div">
-                                                        <label for="">Avalição3</label><br>
+                                                        <label for="">Extensão</label><br>
                                                         <input type="number" name="avaliacao3" class="input" required value="{{$lista->avaliacao3}}" >
                                                         </div>
                                                         <div class="div">
-                                                        <label for="">Avalição4</label><br>
+                                                        <label for="">Gestão</label><br>
                                                         <input type="number" name="avaliacao4" class="input" required value="{{$lista->avaliacao4}}" >
                                                         </div>
                                                     

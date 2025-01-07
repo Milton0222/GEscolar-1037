@@ -87,16 +87,16 @@ Route::middleware([
     })->name('v-definicoes');
     
     //user
-        Route::get('/user/{id}',[Controller::class, 'userPermission'])->name('user.permission');
-        Route::get('/ver/funcionarios', [Controller::class, 'index'])->name('funcionario.index');
-        Route::post('/salvar/funcionario',[Controller::class, 'store'])->name('funcionario.store');
-        Route::delete('/apagar/funcionario/{id}',[Controller::class, 'destroy'])->name('funcionario.delete');
-        Route::put('/actualizar/funcioonario/{id}',[Controller::class, 'update'])->name('funcionario.update');
-        Route::get('/pesquisar/funcionario',[Controller::class, 'pesquisar'])->name('funcionario.pesquisar');
-        Route::get('/livro/ponto',[Controller::class,'presencaIndex'])->name('ponto.ver');
-        Route::post('/ponto/salvar',[Controller::class,'storePonto'])->name('ponto.storePonto');
-        Route::delete('/ponto/apagar/{id}',[Controller::class ,'destroyPonto'])->name('ponto.destroyPonto');
-        Route::put('/ponto/actualiza/{id}',[Controller::class,'pontoUpdate'])->name('ponto.pontoUpdate');
+        Route::get('/user/{id}',[Controller::class, 'userPermission'])->name('user.permission')->middleware('adimin');
+        Route::get('/ver/funcionarios', [Controller::class, 'index'])->name('funcionario.index')->middleware('adimin');
+        Route::post('/salvar/funcionario',[Controller::class, 'store'])->name('funcionario.store')->middleware('adimin');
+        Route::delete('/apagar/funcionario/{id}',[Controller::class, 'destroy'])->name('funcionario.delete')->middleware('adimin');
+        Route::put('/actualizar/funcioonario/{id}',[Controller::class, 'update'])->name('funcionario.update')->middleware('adimin');
+        Route::get('/pesquisar/funcionario',[Controller::class, 'pesquisar'])->name('funcionario.pesquisar')->middleware('adimin');
+        Route::get('/livro/ponto',[Controller::class,'presencaIndex'])->name('ponto.ver')->middleware('adimin');
+        Route::post('/ponto/salvar',[Controller::class,'storePonto'])->name('ponto.storePonto')->middleware('adimin');
+        Route::delete('/ponto/apagar/{id}',[Controller::class ,'destroyPonto'])->name('ponto.destroyPonto')->middleware('adimin');
+        Route::put('/ponto/actualiza/{id}',[Controller::class,'pontoUpdate'])->name('ponto.pontoUpdate')->middleware('adimin');
     
     //alunos
     

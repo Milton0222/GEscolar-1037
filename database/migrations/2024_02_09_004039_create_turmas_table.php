@@ -16,6 +16,8 @@ return new class extends Migration
             $table->String('nome');
             $table->enum('periodo',['Manhã','Tarde']);
             $table->integer('quantidade')->default(0);
+            $table->string('curso',50)->nullable();
+            $table->integer('sala')->nullable();
             $table->unsignedBigInteger('classe');
             $table->foreign('classe')->references('id')->on('classes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

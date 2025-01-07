@@ -12,6 +12,8 @@ class turma extends Model
             'nome',
             'periodo',
             'quantidade',
-            'classe'
+            'classe',
+            'curso',
+            'sala'
     ]);
 }

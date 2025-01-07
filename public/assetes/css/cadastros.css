@@ -466,8 +466,10 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(205, 239, 250) 3
   }
   
   /*estilizando inputs
-  .....
+  .....e ocultar div
   */
+
+  
 
   .search input[type="text"] {
     width: 200px;

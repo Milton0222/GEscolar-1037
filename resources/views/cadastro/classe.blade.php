@@ -27,6 +27,10 @@
                             <option value="7ª">7ªClasse</option>
                             <option value="8ª">8ªClasse</option>
                             <option value="9ª">9ªClasse</option>
+                            <option value="10ª">10ªClasse</option>
+                            <option value="11ª">11ªClasse</option>
+                            <option value="12ª">12ªClasse</option>
+                            <option value="13ª">13ªClasse</option>
                             
                         </select>
                       
