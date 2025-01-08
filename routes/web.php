@@ -84,7 +84,7 @@ Route::middleware([
     Route::get('/definicoes', function () {
         $usuarios=User::get();
         return view('definicoes',compact('usuarios'));
-    })->name('v-definicoes');
+    })->name('v-definicoes')->middleware('adimin');
     
     //user
         Route::get('/user/{id}',[Controller::class, 'userPermission'])->name('user.permission')->middleware('adimin');
@@ -102,9 +102,9 @@ Route::middleware([
     
     Route::get('/cadastro/aluno',[alunoController::class,'index'])->name('v-aluno')->middleware('adimin');
     Route::post('/aluno/salvar',[alunoController::class, 'store'])->name('aluno.store')->middleware('adimin');
-    Route::get('/aluno/buscar',[alunoController::class,'show'])->name('aluno.pesquisar')->middleware('adimin');
+    Route::get('/aluno/buscar',[alunoController::class,'show'])->name('aluno.pesquisar');
     Route::get('/aluno/{id}',[alunoController::class,'destroy'])->name('aluno.destroy')->middleware('adimin');
-    Route::put('/aluno/actualizar/{id}',[alunoController::class, 'update'])->name('aluno.update');
+    Route::put('/aluno/actualizar/{id}',[alunoController::class, 'update'])->name('aluno.update')->middleware('adimin');;
     
     //matricula
     
